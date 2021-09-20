@@ -10,4 +10,12 @@ class ArticlesController < ApplicationController
         @articles = Article.all
     end
 
+    def new
+        ##render plain = params[:articles]
+    end
+
+    def create
+        render plain: params[:articles]
+    end
+
 end
