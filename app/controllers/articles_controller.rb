@@ -15,7 +15,12 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        render plain: params[:articles]
+        #byebug
+        @article = Article.new(params.require(:article).permit(:title, :description))
+        @article.save
+        #render plain: @article.inspect
+        redirect_to @article
+        #redirect_to article_path(@article.id)
     end
 
 end
